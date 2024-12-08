@@ -85,7 +85,7 @@ nav ul li a:hover {
 
 /* Main section styling */
 .main-section {
-    background-image: url('images/landing\ page\ background.jpg');  /* Background image */
+    background-image: url('Images/landing page background.jpg');  /* Background image */
     background-size: cover;  /* Cover the whole screen */
     background-position: center;
     background-attachment: fixed;  /* Sticky background effect */

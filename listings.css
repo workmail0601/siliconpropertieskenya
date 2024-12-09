@@ -218,6 +218,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 45px; 
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
     max-width: 1200px;
     margin: 0 auto;

@@ -1,0 +1,18 @@
+# Robots.txt file for Silicon Properties Kenya
+# This file allows or disallows search engine crawlers to access specific parts of your website.
+
+# Allow all search engines to index the main site
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /wp-admin/
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.siliconpropertieskenya.com/sitemap.xml
+
+# Crawl-delay to prevent overloading the server (optional, specific to some crawlers)
+Crawl-delay: 10

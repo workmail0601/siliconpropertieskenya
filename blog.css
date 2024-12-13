@@ -1,0 +1,79 @@
+/* General styling for the blog page */
+#blog-page {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*Styling the post header*/
+.blog-header{
+    padding-top: 10px;
+
+}
+.blog-header h1 {
+    color:#f39c12
+}
+/* Styling the post content container */
+.blog-item {
+    background-color: white;
+    padding: 50px;
+    margin-bottom: 30px; /* Added margin to create space between blog posts */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: scale(1.02);
+}
+
+/* Image styling */
+.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+/* Styling for the Read More / Show Less button */
+.read-more {
+    background-color: #093193; /* Navy blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.read-more:hover,
+.read-more:active {
+    background-color: #f39c12; /* Gold */
+}
+
+/* Hide the extra content initially */
+.blog-full-content {
+    display: none;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #blog-page {
+        width: 100%;
+    }
+
+    .blog-item {
+        padding: 15px;
+    }
+
+    .read-more {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

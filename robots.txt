@@ -3,13 +3,13 @@
 
 # Allow all search engines to index the main site
 User-agent: *
-Disallow: /admin/
 Disallow: /private/
 Disallow: /cgi-bin/
 Disallow: /temp/
 Disallow: /test/
 Disallow: /wp-admin/
 Allow: /
+Allow: /public/
 
 # Sitemap location
 Sitemap: https://www.siliconpropertieskenya.com/sitemap.xml

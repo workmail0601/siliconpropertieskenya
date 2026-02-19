@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Properties Kenya | Premium Real Estate</title>
+
+    <link rel="shortcut icon" href="../Images/Favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/Favicon/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/Favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../Images/Favicon/android-chrome-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../Images/Favicon/android-chrome-512.png">
+    <link rel="apple-touch-icon" href="Images/Favicon/apple-touch-icon.png">
+
+    <link rel="manifest" href="../Images/Favicon/site.webmanifest">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#093193',
+                        brandGold: '#efb027',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Editorial text gradient/clip for a subtle modern touch */
+        .editorial-title {
+            line-height: 1.1;
+        }
+
+        .property-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans selection:bg-brandGold selection:text-white">
+
+<nav class="fixed w-full z-50 bg-brandBlue border-b border-white/10 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            
+            <a href="../index.html" class="flex gap-2 text-2xl md:text-3xl font-bold font-sans tracking-tight">
+                <span class="text-white">Silicon</span>
+                <span class="text-brandGold">Properties</span>
+            </a>
+            
+            <ul class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+                <li><a href="../index.html" class="hover:text-brandGold transition-colors duration-300">Home</a></li>
+                <li><a href="about.html" class="hover:text-brandGold transition-colors duration-300">About Us</a></li>
+                <li><a href="#" class="hover:text-brandGold transition-colors duration-300">Properties</a></li>
+                <li><a href="contact.html" class="hover:text-brandGold transition-colors duration-300">Contact</a></li>
+                <li><a href="blog.html" class="hover:text-brandGold transition-colors duration-300">Blog</a></li>
+            </ul>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandGold transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-brandBlue border-t border-white/10 px-6 py-8">
+            <ul class="flex flex-col gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
+                <li><a href="../index.html" class="block hover:text-brandGold transition">Home</a></li>
+                <li><a href="about.html" class="block hover:text-brandGold transition">About Us</a></li>
+                <li><a href="#" class="block hover:text-brandGold transition">Properties</a></li>
+                <li><a href="contact.html" class="block text-brandGold transition">Contact</a></li>
+                <li><a href="blog.html" class="block text-brandGold transition">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+
+<section class="pt-32 pb-16 bg-brandBlue">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+            <div>
+                <h1 class="font-serif text-4xl md:text-6xl text-white mb-4">Property Catalog</h1>
+                <p class="text-white/70 text-lg">Explore our full portfolio of coastal investments.</p>
+            </div>
+            <a href="catalog.pdf" download class="bg-brandGold text-brandBlue px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                Download Catalog PDF
+            </a>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <input type="text" id="propertySearch" placeholder="Search by location (e.g. Diani, Msambweni, Tiwi)..." 
+                class="w-full bg-white/10 border border-white/20 py-5 px-8 rounded-none text-white placeholder:text-white/50 focus:outline-none focus:bg-white/20 focus:border-brandGold transition-all">
+            <div class="absolute right-6 top-1/2 -translate-y-1/2 text-white/50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/001/001.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.75 Acre Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 13,500,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/091/091.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">DISTRESS SALE!</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.5 Acre Plot in Mwabungo Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 2,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/004/004.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Galu Kinondo Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 9,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/005/005.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre for Sale in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 5,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/006/006.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Matuga</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 1,300,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/007/007.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Matuga</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 1,300,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/008/008.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 5,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/017/017.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">10 Acres in Ramisi</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 700,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/018/018.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">10 Acres in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 5,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/021/021.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">12 Acres in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 12,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/022/022.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">12 Acres in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 8,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/024/024.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres in Ukunda</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 13,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/025/025.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in kidomaya Kwale</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 600,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/026/026.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres in Ramisi Kwale</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 700,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/028/028.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">18 Acres in Kidomaya</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 550,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/029/029.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">19 Acres in Kidomayat</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 550,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/030/030.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres in Galu Kinondo</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 9,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/031/031.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres Coastal Land in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 4,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/032/032.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">4 Acre Beachfront in Shimoni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 13,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/038/038.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">20 Acres in Kidimu Kwale</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 600,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/039/039.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">20 Acres in Shimba Hills Roadside</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 1,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/040/040.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">3 Acres in Diani Roadside</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 45,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/042/042.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">4 Acres in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 8,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/043/043.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">3 Bedroom Villa for Sale</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 40,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/049/049.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">3.5 Acres in Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 3,500,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/050/050.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">4 Acre Beach Plot in Shimoni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 13,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/052/052.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">4.5 Acres in Matuga</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 1,300,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/054/054.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">5 Acre Prime Plot in Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 10,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/055/055.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">5 Acre Coral Beach Plot in Msambweni/h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 10,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/057/057.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Kwale Kiscol</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 700,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/060/060.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.25 Acre in Galu Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 5,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/061/061.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">7 Acres in Msambweni </h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 10,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/062/062.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">7 Acre Ocean View in Funzi Msambweni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 12,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/063/063.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre Beach Plot in Funzi</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 10,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/066/066.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.25 Acre in Mvindeni Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 1,500,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/070/070.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">3 Acre Coral Beach in Shimoni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 13,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/071/071.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">3.5 Acre in Galu Kinondo</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 2,000,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/072/072.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.25 Acre Galu Kinondo</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 6,500,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/075/075.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.5 Acre in Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 20,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/080/080.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">30 Acres in Majoreni Kwale</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 550,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/081/081.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres with a Home in Kikambala</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">USD 550,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/083/083.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">2 Acres in Ukunda</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 2,500,000/ac</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/085/085.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.25 Acre in Galu Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 5,500,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/092/092.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Matuga</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 15,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/093/093.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-brandGold text-brandBlue px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Special Deal</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Matuga</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 16,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/094/094.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre in Diani</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 15,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Tiwi">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/095/095.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.5 Acre in Ramisi</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 650,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201.5%20Acre%20Beach%20Plot" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Galu">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/096/096.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Urgent Sale</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">0.5 Acre in Mvindeni</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 6,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20Galu%20Kinondo" class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Msambweni">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/097/097.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">1 Acre 2nd Row Plot for Sale in Tiwi</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 15,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Msambweni" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white group property-card shadow-lg transition-all" data-location="Diani">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="../Images/Catalog/098/098.webp" class="w-full h-full object-cover transition duration-500" alt="Property">
+                    <div class="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-widest z-10">Great Discount!</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-serif text-2xl mb-2 text-brandBlue">Luxury 3 Floor Home for Sale in Tiwi</h3>
+                    <p class="text-brandGold font-bold text-lg mb-6">KES 60,000,000</p>
+                    <a href="https://wa.me/254725931017?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%201%20Acre%20Diani" 
+                       class="block text-center border-2 border-brandBlue text-brandBlue py-3 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            </div>
+        
+        <div id="noResults" class="hidden py-20 text-center">
+            <h3 class="text-2xl text-slate-400">No properties found matching your search.</h3>
+        </div>
+    </div>
+</section>
+
+<script>
+
+</script>
+
+
+
+
+
+<footer class="bg-brandBlue pt-20 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 items-start">
+            
+            <div class="space-y-6">
+                <a href="../index.html" class="flex gap-2 text-2xl font-bold font-sans tracking-tight">
+                    <span class="text-white">Silicon</span>
+                    <span class="text-brandGold">Properties</span>
+                </a>
+                <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+                    Premium real estate agency specializing in coastal land investments, holiday homes, and commercial plots in Diani, Msambweni, and Tiwi.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/+254725931017" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="message-circle" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/siliconpropertieskenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="instagram" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/Siliconpropertieskenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="facebook" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/company/silicon-properties-kenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="linkedin" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:pl-10">
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Navigation</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li><a href="../index.html" class="hover:text-brandGold transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brandGold transition-colors">About Us</a></li>
+                    <li><a href="catalog.html" class="hover:text-brandGold transition-colors">Property Catalog</a></li>
+                    <li><a href="blog.html" class="hover:text-brandGold transition-colors">Investment Journal</a></li>
+                    <li><a href="contact.html" class="hover:text-brandGold transition-colors">Contact & Support</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Headquarters</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Location:</span>
+                        <span>Diani Beach, Kwale County, Kenya</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Inquiries:</span>
+                        <span>info@siliconpropertieske.com</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Support:</span>
+                        <span>+254 725 931 017</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-white/40 text-[11px] uppercase tracking-[0.2em]">
+                © 2026 Silicon Properties Kenya. All rights reserved.
+            </div>
+            <div class="flex gap-8 text-[11px] uppercase tracking-[0.2em] text-white/40">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <button id="toTop" class="fixed bottom-8 right-8 w-12 h-12 bg-brandBlue text-white rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity">
+        ↑
+    </button>
+
+    <div class="fixed bottom-24 right-8 z-[100] flex flex-col items-end gap-4">
+    <div id="language-panel" class="hidden bg-white/90 backdrop-blur-md border border-slate-200 p-6 shadow-2xl rounded-2xl w-64 transition-all duration-300 transform translate-y-4 opacity-0">
+        <h5 class="text-[10px] font-bold uppercase tracking-widest text-brandBlue mb-4 border-b border-slate-100 pb-2">Select Language</h5>
+        <div class="grid grid-cols-1 gap-2 overflow-y-auto max-h-[300px] no-scrollbar" id="language-list">
+            </div>
+    </div>
+
+    <button onclick="toggleTranslateMenu()" class="w-14 h-14 bg-brandBlue text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-brandGold transition-all duration-300 group">
+        <i data-lucide="languages" class="w-6 h-6 group-hover:rotate-12 transition-transform"></i>
+    </button>
+</div>
+
+<div id="google_translate_element" class="hidden"></div>
+
+<script>
+    // 1. Initialize Icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // 2. Mobile Menu Toggle (Safe Check)
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // 3. Property Search Logic (Safe Check)
+    const searchInput = document.getElementById('propertySearch');
+    const propertyCards = document.querySelectorAll('.property-card');
+    const noResults = document.getElementById('noResults');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let found = false;
+
+            propertyCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                // Safe check for data-location attribute
+                const locationAttr = card.getAttribute('data-location');
+                const location = locationAttr ? locationAttr.toLowerCase() : "";
+                
+                if (text.includes(term) || location.includes(term)) {
+                    card.style.display = 'block';
+                    found = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (noResults) {
+                noResults.classList.toggle('hidden', found);
+            }
+        });
+    }
+
+    // 4. Scroll to Top Logic (Safe Check)
+    const toTop = document.getElementById('toTop');
+    if (toTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                toTop.style.opacity = '1';
+                toTop.style.pointerEvents = 'auto';
+            } else {
+                toTop.style.opacity = '0';
+                toTop.style.pointerEvents = 'none';
+            }
+        });
+        toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    }
+
+    // 5. Google Translate Language Logic
+    const languages = [
+        { name: 'English', code: 'en' },
+        { name: 'Arabic (العربية)', code: 'ar' },
+        { name: 'Chinese (简体中文)', code: 'zh-CN' },
+        { name: 'Dutch (Nederlands)', code: 'nl' },
+        { name: 'French (Français)', code: 'fr' },
+        { name: 'German (Deutsch)', code: 'de' },
+        { name: 'Hindi (हिन्दी)', code: 'hi' },
+        { name: 'Italian (Italiano)', code: 'it' },
+        { name: 'Japanese (日本語)', code: 'ja' },
+        { name: 'Polish (Polski)', code: 'pl' },
+        { name: 'Portuguese (Português)', code: 'pt' },
+        { name: 'Russian (Русский)', code: 'ru' },
+        { name: 'Spanish (Español)', code: 'es' },
+        { name: 'Turkish (Türkçe)', code: 'tr' }
+    ];
+
+    const langList = document.getElementById('language-list');
+    if (langList) {
+        languages.forEach(lang => {
+            const btn = document.createElement('button');
+            btn.className = "text-left px-3 py-2 text-sm text-slate-700 hover:bg-brandBlue hover:text-white rounded-lg transition-colors duration-200";
+            btn.innerText = lang.name;
+            btn.onclick = () => changeLanguage(lang.code);
+            langList.appendChild(btn);
+        });
+    }
+
+    // 6. Translation Trigger Functions
+    function changeLanguage(langCode) {
+        const googleSelect = document.querySelector('.goog-te-combo');
+        if (googleSelect) {
+            googleSelect.value = langCode;
+            googleSelect.dispatchEvent(new Event('change'));
+            if (typeof toggleTranslateMenu === 'function') toggleTranslateMenu();
+        }
+    }
+
+    function toggleTranslateMenu() {
+        const panel = document.getElementById('language-panel');
+        if (panel) {
+            if (panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('translate-y-4', 'opacity-0'), 10);
+            } else {
+                panel.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => panel.classList.add('hidden'), 300);
+            }
+        }
+    }
+</script>
+</body>
+</html>

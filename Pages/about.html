@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Properties Kenya | Premium Real Estate</title>
+    
+    <link rel="shortcut icon" href="../Images/Favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/Favicon/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/Favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../Images/Favicon/android-chrome-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../Images/Favicon/android-chrome-512.png">
+    <link rel="apple-touch-icon" href="Images/Favicon/apple-touch-icon.png">
+
+    <link rel="manifest" href="../Images/Favicon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#093193',
+                        brandGold: '#efb027',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+  
+    <style>
+        /* Hide the annoying Google Top Bar */
+    body { top: 0 !important; }
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    .goog-te-gadget { color: transparent !important; }
+    .goog-te-gadget img { display: none !important; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Editorial text gradient/clip for a subtle modern touch */
+        .editorial-title {
+            line-height: 1.1;
+        }
+
+        .property-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans selection:bg-brandGold selection:text-white">
+
+<nav class="fixed w-full z-50 bg-brandBlue border-b border-white/10 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            
+            <a href="../index.html" class="flex gap-2 text-2xl md:text-3xl font-bold font-sans tracking-tight">
+                <span class="text-white">Silicon</span>
+                <span class="text-brandGold">Properties</span>
+            </a>
+            
+            <ul class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+                <li><a href="../index.html" class="hover:text-brandGold transition-colors duration-300">Home</a></li>
+                <li><a href="#" class="hover:text-brandGold transition-colors duration-300">About Us</a></li>
+                <li><a href="catalog.html" class="hover:text-brandGold transition-colors duration-300">Properties</a></li>
+                <li><a href="contact.html" class="hover:text-brandGold transition-colors duration-300">Contact</a></li>
+                <li><a href="blog.html" class="hover:text-brandGold transition-colors duration-300">Blog</a></li>
+            </ul>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandGold transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-brandBlue border-t border-white/10 px-6 py-8">
+            <ul class="flex flex-col gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
+                <li><a href="../index.html" class="block hover:text-brandGold transition">Home</a></li>
+                <li><a href="#" class="block hover:text-brandGold transition">About Us</a></li>
+                <li><a href="catalog.html" class="block hover:text-brandGold transition">Properties</a></li>
+                <li><a href="contact.html" class="block text-brandGold transition">Contact</a></li>
+                <li><a href="blog.html" class="block text-brandGold transition">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+<section class="relative pt-44 pb-24 bg-brandBlue overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brandGold/5 skew-x-12 translate-x-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h4 class="text-brandGold uppercase tracking-[0.4em] text-sm font-bold mb-6">Our Story</h4>
+            <h1 class="font-serif text-5xl md:text-8xl text-white leading-tight mb-8">
+                Integrity in every <br> <span class="text-brandGold italic">Transaction.</span>
+            </h1>
+            <p class="text-white/70 text-xl max-w-2xl font-light leading-relaxed">
+                Since our inception, Silicon Properties has been dedicated to redefining the coastal real estate landscape through transparency and local expertise.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative order-2 md:order-1">
+                <div class="aspect-[4/5] overflow-hidden shadow-2xl relative z-10">
+                    <img src="../Images/Web/4.webp" alt="Coastal Property" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-brandGold/10 -z-0"></div>
+                <div class="absolute -bottom-6 -left-6 border-4 border-brandBlue w-32 h-32 hidden md:block"></div>
+            </div>
+
+            <div class="order-1 md:order-2">
+                <h2 class="font-serif text-4xl md:text-5xl text-brandBlue mb-8">Guided by local roots, driven by global standards.</h2>
+                <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                    <p>Based in Diani Beach, Silicon Properties specializes in premium beach plots, residential homes, and investment opportunities across the Kenyan Coast. We understand that buying property is more than a transaction; it's a milestone.</p>
+                    <p>Our philosophy is simple: **Client-first service.** We navigate the complexities of land titles and coastal regulations so you can focus on building your dream.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 mt-12 border-t border-slate-100 pt-12">
+                    <div>
+                        <span class="block font-serif text-4xl text-brandGold mb-2">10+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-brandBlue">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-4xl text-brandGold mb-2">500+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-brandBlue">Acres Sold</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-serif text-4xl text-brandBlue mb-4">Our Core Values</h2>
+                <div class="h-1 w-20 bg-brandGold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandBlue group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Transparency</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">Clear communication and verified documentation are the pillars of every deal we close.</p>
+                </div>
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandGold group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Expertise</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">In-depth knowledge of the Kenyan coastal market ensures you get the best value for your investment.</p>
+                </div>
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandBlue group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Commitment</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">We stay with you long after the keys are handed over, offering support and property management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brandBlue text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-serif text-4xl md:text-5xl mb-8">Ready to find your piece of paradise?</h2>
+            <a href="catalog.html" class="inline-block bg-brandGold text-brandBlue px-12 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                Browse Properties
+            </a>
+        </div>
+    </section>
+
+
+
+
+<footer class="bg-brandBlue pt-20 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 items-start">
+            
+            <div class="space-y-6">
+                <a href="../index.html" class="flex gap-2 text-2xl font-bold font-sans tracking-tight">
+                    <span class="text-white">Silicon</span>
+                    <span class="text-brandGold">Properties</span>
+                </a>
+                <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+                    Premium real estate agency specializing in coastal land investments, holiday homes, and commercial plots in Diani, Msambweni, and Tiwi.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/+254725931017" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="message-circle" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/siliconpropertieskenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="instagram" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/Siliconpropertieskenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="facebook" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/company/silicon-properties-kenya/" target="_blank" 
+                    class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold transition-all duration-300">
+                        <i data-lucide="linkedin" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:pl-10">
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Navigation</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li><a href="../index.html" class="hover:text-brandGold transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brandGold transition-colors">About Us</a></li>
+                    <li><a href="catalog.html" class="hover:text-brandGold transition-colors">Property Catalog</a></li>
+                    <li><a href="blog.html" class="hover:text-brandGold transition-colors">Investment Journal</a></li>
+                    <li><a href="contact.html" class="hover:text-brandGold transition-colors">Contact & Support</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Headquarters</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Location:</span>
+                        <span>Diani Beach, Kwale County, Kenya</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Inquiries:</span>
+                        <span>info@siliconpropertieske.com</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brandGold">Support:</span>
+                        <span>+254 725 931 017</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-white/40 text-[11px] uppercase tracking-[0.2em]">
+                © 2026 Silicon Properties Kenya. All rights reserved.
+            </div>
+            <div class="flex gap-8 text-[11px] uppercase tracking-[0.2em] text-white/40">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <button id="toTop" class="fixed bottom-8 right-8 w-12 h-12 bg-brandBlue text-white rounded-full flex items-center justify-center shadow-lg opacity-0 transition-opacity">
+        ↑
+    </button>
+
+    <div class="fixed bottom-24 right-8 z-[100] flex flex-col items-end gap-4">
+    <div id="language-panel" class="hidden bg-white/90 backdrop-blur-md border border-slate-200 p-6 shadow-2xl rounded-2xl w-64 transition-all duration-300 transform translate-y-4 opacity-0">
+        <h5 class="text-[10px] font-bold uppercase tracking-widest text-brandBlue mb-4 border-b border-slate-100 pb-2">Select Language</h5>
+        <div class="grid grid-cols-1 gap-2 overflow-y-auto max-h-[300px] no-scrollbar" id="language-list">
+            </div>
+    </div>
+
+    <button onclick="toggleTranslateMenu()" class="w-14 h-14 bg-brandBlue text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-brandGold transition-all duration-300 group">
+        <i data-lucide="languages" class="w-6 h-6 group-hover:rotate-12 transition-transform"></i>
+    </button>
+</div>
+
+<div id="google_translate_element" class="hidden"></div>
+
+    <script>
+    // 1. POPULATE LANGUAGES FIRST (Ensures they load regardless of other errors)
+    const languages = [
+        { name: 'English', code: 'en' },
+        { name: 'Arabic (العربية)', code: 'ar' },
+        { name: 'Chinese (简体中文)', code: 'zh-CN' },
+        { name: 'Dutch (Nederlands)', code: 'nl' },
+        { name: 'French (Français)', code: 'fr' },
+        { name: 'German (Deutsch)', code: 'de' },
+        { name: 'Hindi (हिन्दी)', code: 'hi' },
+        { name: 'Italian (Italiano)', code: 'it' },
+        { name: 'Japanese (日本語)', code: 'ja' },
+        { name: 'Polish (Polski)', code: 'pl' },
+        { name: 'Portuguese (Português)', code: 'pt' },
+        { name: 'Russian (Русский)', code: 'ru' },
+        { name: 'Spanish (Español)', code: 'es' },
+        { name: 'Turkish (Türkçe)', code: 'tr' }
+    ];
+
+    const list = document.getElementById('language-list');
+    if (list) {
+        languages.forEach(lang => {
+            const btn = document.createElement('button');
+            btn.className = "text-left px-3 py-2 text-sm text-slate-700 hover:bg-brandBlue hover:text-white rounded-lg transition-colors duration-200";
+            btn.innerText = lang.name;
+            btn.onclick = () => changeLanguage(lang.code);
+            list.appendChild(btn);
+        });
+    }
+
+    // 2. GOOGLE TRANSLATE INIT
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,zh-CN,de,fr,it,es,ar,hi,ru,nl,pt,tr,ja,ko,pl', 
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    function changeLanguage(langCode) {
+        const googleSelect = document.querySelector('.goog-te-combo');
+        if (googleSelect) {
+            googleSelect.value = langCode;
+            googleSelect.dispatchEvent(new Event('change'));
+            toggleTranslateMenu();
+        } else {
+            alert("Translate service is still loading. Please try again in a second.");
+        }
+    }
+
+    function toggleTranslateMenu() {
+        const panel = document.getElementById('language-panel');
+        if (panel.classList.contains('hidden')) {
+            panel.classList.remove('hidden');
+            setTimeout(() => panel.classList.remove('translate-y-4', 'opacity-0'), 10);
+        } else {
+            panel.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => panel.classList.add('hidden'), 300);
+        }
+    }
+
+    // 3. UI INITIALIZATION (With safety checks)
+    lucide.createIcons();
+
+    // Mobile Menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Carousel (Safe version)
+    const carousel = document.getElementById('carousel');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    if (carousel && next && prev) {
+        next.addEventListener('click', () => carousel.scrollBy({ left: 400, behavior: 'smooth' }));
+        prev.addEventListener('click', () => carousel.scrollBy({ left: -400, behavior: 'smooth' }));
+    }
+
+    // To Top
+    const toTop = document.getElementById('toTop');
+    if (toTop) {
+        window.onscroll = () => {
+            if (window.scrollY > 500) toTop.style.opacity = '1';
+            else toTop.style.opacity = '0';
+        };
+        toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    }
+    </script>
+</body>
+</html>

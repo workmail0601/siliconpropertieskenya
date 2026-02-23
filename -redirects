@@ -1,0 +1,6 @@
+# Redirect old top-level pages to their new locations
+/listings.html    /Pages/catalog.html    301
+/blog.html        /Pages/blog.html       301
+
+# Optional: Redirect the .html version of your home page to the clean root
+/index.html       /                      301

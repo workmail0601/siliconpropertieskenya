@@ -355,7 +355,7 @@ async function loadProperty() {
 
     try {
         let data;
-        if (SHEET_API_URL && SHEET_API_URL !== "https://script.google.com/macros/s/AKfycbwQezH9tBAPMJ69G9S3NEiaDUBQl2mdFO9SEtunB9xaUZIM3I9LgkppzJMkTL1Nzbt9/exec") {
+        if (typeof SHEET_API_URL !== "undefined" && SHEET_API_URL) {
             const res = await fetch(`${SHEET_API_URL}?id=${propId}`);
             data = await res.json();
             allProperties = data.properties || [];

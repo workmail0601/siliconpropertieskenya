@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | Silicon Properties Kenya</title>
+    <meta name="description" content="Premium coastal property listing from Silicon Properties Kenya.">
+
+    <link rel="shortcut icon" href="../Images/Favicon/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brandBlue: '#093193', brandGold: '#efb027' },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .gallery-thumb { cursor: pointer; transition: all 0.2s; opacity: 0.6; flex-shrink: 0; }
+        .gallery-thumb.active { opacity: 1; outline: 3px solid #efb027; }
+        .gallery-thumb:hover { opacity: 1; }
+        .fade-in { animation: fadeIn 0.5s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tag-gold { background: #efb027; color: #093193; }
+        .tag-red  { background: #dc2626; color: #ffffff; }
+        .tag-blue { background: #093193; color: #ffffff; }
+
+        /* Thumbnail strip — horizontal scroll, gold scrollbar */
+        #thumbnail-row {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            scroll-behavior: smooth;
+        }
+        #thumbnail-row::-webkit-scrollbar { height: 4px; }
+        #thumbnail-row::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 2px; }
+        #thumbnail-row::-webkit-scrollbar-thumb { background: #efb027; border-radius: 2px; }
+        #thumbnail-row { scrollbar-width: thin; scrollbar-color: #efb027 #f1f5f9; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans">
+
+<!-- NAV -->
+<nav class="fixed w-full z-50 bg-brandBlue border-b border-white/10 shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <a href="../index.html" class="flex gap-2 text-2xl md:text-3xl font-bold font-sans tracking-tight">
+            <span class="text-white">Silicon</span>
+            <span class="text-brandGold">Properties</span>
+        </a>
+        <ul class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+            <li><a href="../index.html" class="hover:text-brandGold transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-brandGold transition-colors duration-300">About Us</a></li>
+            <li><a href="catalog.html" class="hover:text-brandGold transition-colors duration-300">Properties</a></li>
+            <li><a href="contact.html" class="hover:text-brandGold transition-colors duration-300">Contact</a></li>
+            <li><a href="blog.html" class="hover:text-brandGold transition-colors duration-300">Blog</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandGold transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"/>
+            </svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-brandBlue border-t border-white/10 px-6 py-8">
+        <ul class="flex flex-col gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
+            <li><a href="../index.html" class="block hover:text-brandGold transition">Home</a></li>
+            <li><a href="about.html" class="block hover:text-brandGold transition">About Us</a></li>
+            <li><a href="catalog.html" class="block hover:text-brandGold transition">Properties</a></li>
+            <li><a href="contact.html" class="block hover:text-brandGold transition">Contact</a></li>
+            <li><a href="blog.html" class="block hover:text-brandGold transition">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- LOADING STATE -->
+<div id="loading-state" class="min-h-screen flex items-center justify-center pt-20">
+    <div class="text-center">
+        <div class="w-12 h-12 border-4 border-brandBlue border-t-brandGold rounded-full animate-spin mx-auto mb-6"></div>
+        <p class="text-slate-500 uppercase tracking-widest text-xs">Loading property details...</p>
+    </div>
+</div>
+
+<!-- ERROR STATE -->
+<div id="error-state" class="hidden min-h-screen flex items-center justify-center pt-20">
+    <div class="text-center max-w-md px-6">
+        <h2 class="font-serif text-4xl text-brandBlue mb-4">Property Not Found</h2>
+        <p class="text-slate-500 mb-8">We couldn't find this listing. It may have been sold or removed.</p>
+        <a href="catalog.html" class="inline-block bg-brandBlue text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-brandGold hover:text-brandBlue transition">
+            Browse All Properties
+        </a>
+    </div>
+</div>
+
+<!-- PROPERTY CONTENT -->
+<div id="property-content" class="hidden">
+
+    <!-- BREADCRUMB + HERO -->
+    <div class="pt-28 pb-0 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-2 text-xs text-slate-400 uppercase tracking-widest mb-6">
+                <a href="../index.html" class="hover:text-brandGold transition">Home</a>
+                <span>/</span>
+                <a href="catalog.html" class="hover:text-brandGold transition">Properties</a>
+                <span>/</span>
+                <span id="breadcrumb-title" class="text-brandBlue"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY + DETAILS GRID -->
+    <section class="py-12 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+
+            <!-- GALLERY -->
+            <div>
+                <div class="relative aspect-[4/3] overflow-hidden bg-slate-200 mb-4 shadow-xl">
+                    <img id="main-image" src="" alt="Property" class="w-full h-full object-cover">
+                    <div id="property-tag" class="hidden absolute top-4 left-4 px-4 py-2 text-xs font-bold uppercase tracking-widest z-10"></div>
+                    <div id="image-counter" class="hidden absolute bottom-4 right-4 bg-black/50 text-white text-xs font-bold px-3 py-1 tracking-widest"></div>
+                </div>
+                <div id="thumbnail-row"></div>
+            </div>
+
+            <!-- DETAILS -->
+            <div class="fade-in">
+                <h1 id="property-title" class="font-serif text-3xl md:text-5xl text-brandBlue mb-4 leading-tight"></h1>
+
+                <div class="flex items-center gap-6 mb-6">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Price</p>
+                        <p id="property-price" class="text-brandGold font-bold text-2xl"></p>
+                    </div>
+                    <div class="w-px h-12 bg-slate-200"></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Location</p>
+                        <p id="property-location" class="text-brandBlue font-bold text-lg"></p>
+                    </div>
+                    <div class="w-px h-12 bg-slate-200"></div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Size</p>
+                        <p id="property-area" class="text-brandBlue font-bold text-lg"></p>
+                    </div>
+                </div>
+
+                <p id="property-description" class="text-slate-600 leading-relaxed mb-8 text-lg"></p>
+
+                <div class="mb-8">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Features & Highlights</h3>
+                    <ul id="features-list" class="grid grid-cols-2 gap-3"></ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a id="whatsapp-btn" href="#" target="_blank"
+                       class="flex-1 flex items-center justify-center gap-3 bg-green-500 text-white py-4 font-bold uppercase tracking-widest hover:bg-green-600 transition text-sm">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        WhatsApp Enquiry
+                    </a>
+                    <a href="contact.html"
+                       class="flex-1 flex items-center justify-center gap-3 border-2 border-brandBlue text-brandBlue py-4 font-bold uppercase tracking-widest hover:bg-brandBlue hover:text-white transition text-sm">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Call Us
+                    </a>
+                </div>
+
+                <div class="mt-8 p-6 bg-brandBlue/5 border-l-4 border-brandGold">
+                    <p class="text-sm text-slate-600 italic">All properties come with title deed verification support. Our team will guide you through the entire acquisition process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED PROPERTIES -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-serif text-3xl text-brandBlue mb-10">You May Also Like</h2>
+            <div id="related-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-brandBlue pt-20 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 items-start">
+            <div class="space-y-6">
+                <a href="../index.html" class="flex gap-2 text-2xl font-bold font-sans tracking-tight">
+                    <span class="text-white">Silicon</span>
+                    <span class="text-brandGold">Properties</span>
+                </a>
+                <p class="text-white/50 text-sm leading-relaxed max-w-sm">Premium real estate agency specializing in coastal land investments, holiday homes, and commercial plots in Diani, Msambweni, and Tiwi.</p>
+                <div class="flex gap-4">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/+254725931017" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold hover:text-brandBlue transition-all duration-300" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/siliconpropertieskenya/" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold hover:text-brandBlue transition-all duration-300" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/Siliconpropertieskenya/" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold hover:text-brandBlue transition-all duration-300" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/company/silicon-properties-kenya/" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-brandGold hover:border-brandGold hover:text-brandBlue transition-all duration-300" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="md:pl-10">
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Navigation</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li><a href="../index.html" class="hover:text-brandGold transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brandGold transition-colors">About Us</a></li>
+                    <li><a href="catalog.html" class="hover:text-brandGold transition-colors">Property Catalog</a></li>
+                    <li><a href="blog.html" class="hover:text-brandGold transition-colors">Investment Journal</a></li>
+                    <li><a href="contact.html" class="hover:text-brandGold transition-colors">Contact & Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Headquarters</h4>
+                <ul class="space-y-4 text-sm text-white/60">
+                    <li class="flex items-start gap-3"><span class="text-brandGold">Location:</span><span>Diani Beach, Kwale County, Kenya</span></li>
+                    <li class="flex items-start gap-3"><span class="text-brandGold">Inquiries:</span><span>info@siliconpropertieske.com</span></li>
+                    <li class="flex items-start gap-3"><span class="text-brandGold">Support:</span><span>+254 725 931 017</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-white/40 text-[11px] uppercase tracking-[0.2em]">© 2026 Silicon Properties Kenya. All rights reserved.</div>
+            <div class="flex gap-8 text-[11px] uppercase tracking-[0.2em] text-white/40">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// CONFIGURATION — paste your Apps Script Web App URL here
+// ============================================================
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwQezH9tBAPMJ69G9S3NEiaDUBQl2mdFO9SEtunB9xaUZIM3I9LgkppzJMkTL1Nzbt9/exec";
+
+// Fallback demo data — full list matching catalog demo data
+const DEMO_PROPERTIES = [
+    { id:"001", title:"0.75 Acre in Msambweni", location:"Msambweni", area:"0.75 Acre", price:"13,500,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A beautiful 0.75-acre plot nestled in the serene Msambweni area. Ideal for a private holiday home or residential development. The land is flat with red soil, clear title deed, and easy road access. Surrounded by lush greenery with a peaceful rural atmosphere just minutes from the coast.", features:["Title Deed Ready","Road Access","Flat Terrain","Near Coast","Electricity Available"], imageFolder:"001", imageCount:5, whatsappMsg:"Hello, I would like to learn more about 0.75 Acre Msambweni", status:"Active", featured:"yes" },
+    { id:"091", title:"0.5 Acre in Mwabungo Diani", location:"Diani", area:"0.5 Acre", price:"2,000,000", currency:"KES", priceUnit:"", tag:"DISTRESS SALE!", tagColor:"red", description:"Rare distress sale opportunity in the coveted Mwabungo area of Diani. This 0.5-acre plot is priced to sell quickly. Located close to Diani Beach road with potential for residential or commercial use. Clean title deed with all paperwork in order.", features:["Title Deed Ready","Near Diani Beach Road","Distress Price","Quick Sale","Good Access"], imageFolder:"091", imageCount:7, whatsappMsg:"Hello, I would like to learn more about 0.5 Acre Mwabungo Diani", status:"Active", featured:"yes" },
+    { id:"004", title:"1 Acre in Galu Kinondo Diani", location:"Diani", area:"1 Acre", price:"9,000,000", currency:"KES", priceUnit:"", tag:"", tagColor:"", description:"A prime 1-acre plot in the exclusive Galu Kinondo area of Diani. This is one of the most sought-after locations on the South Coast, surrounded by luxury villas and boutique resorts. The land offers a combination of privacy, proximity to Galu Beach, and significant investment potential.", features:["Clean Title Deed","Galu Beach Proximity","Luxury Neighbourhood","Investment Grade","Road Frontage"], imageFolder:"004", imageCount:9, whatsappMsg:"Hello, I would like to learn more about 1 Acre Galu Kinondo Diani", status:"Active", featured:"yes" },
+    { id:"005", title:"1 Acre for Sale in Msambweni", location:"Msambweni", area:"1 Acre", price:"5,000,000", currency:"KES", priceUnit:"", tag:"", tagColor:"", description:"A versatile 1-acre parcel in Msambweni perfect for a family home, holiday retreat, or rental investment. The plot sits in a quiet neighbourhood with growing infrastructure and easy access to the Likoni-Lunga Lunga highway.", features:["Title Deed","Road Access","Residential Zone","Quiet Area","Affordable"], imageFolder:"005", imageCount:8, whatsappMsg:"Hello, I would like to learn more about 1 Acre Msambweni", status:"Active", featured:"no" },
+    { id:"006", title:"1 Acre in Matuga", location:"Matuga", area:"1 Acre", price:"1,300,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"An urgently priced 1-acre agricultural plot in Matuga, Kwale County. Ideal for farming, investment, or long-term land banking. The owner is motivated to sell quickly. Rich red soil suitable for various crops.", features:["Title Deed Available","Agricultural Land","Motivated Seller","Good Soil","Affordable"], imageFolder:"006", imageCount:9, whatsappMsg:"Hello, I would like to learn more about 1 Acre Matuga", status:"Active", featured:"no" },
+    { id:"007", title:"1 Acre in Matuga (Special)", location:"Matuga", area:"1 Acre", price:"1,300,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A well-positioned 1-acre plot in Matuga offered at a special deal price. Flat terrain with good road access and a clear title deed.", features:["Title Deed","Flat Terrain","Road Access","Special Price"], imageFolder:"007", imageCount:23, whatsappMsg:"Hello, I would like to learn more about 1 Acre Matuga Special Deal", status:"Active", featured:"no" },
+    { id:"008", title:"1 Acre in Msambweni (Urgent)", location:"Msambweni", area:"1 Acre", price:"5,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"An urgently listed 1-acre plot in Msambweni. Seller is highly motivated. Clean title deed and all documents ready for swift transfer.", features:["Title Deed Ready","Urgent Sale","Road Access","Motivated Seller"], imageFolder:"008", imageCount:13, whatsappMsg:"Hello, I would like to learn more about 1 Acre Msambweni Urgent", status:"Active", featured:"no" },
+    { id:"017", title:"10 Acres in Ramisi", location:"Ramisi", area:"10 Acres", price:"700,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"A spacious 10-acre parcel in Ramisi, ideal for large-scale agricultural use or land banking. The land is fertile with access to water sources and good road connectivity.", features:["10 Acres","Agricultural","Water Access","Road Connectivity","Title Deed"], imageFolder:"017", imageCount:15, whatsappMsg:"Hello, I would like to learn more about 10 Acres Ramisi", status:"Active", featured:"no" },
+    { id:"018", title:"10 Acres in Msambweni", location:"Msambweni", area:"10 Acres", price:"5,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"A prime 10-acre coastal parcel in Msambweni available at an urgent sale price. Excellent for resort or residential development.", features:["10 Acres","Coastal Area","Development Potential","Urgent Sale","Title Deed"], imageFolder:"018", imageCount:14, whatsappMsg:"Hello, I would like to learn more about 10 Acres Msambweni", status:"Active", featured:"no" },
+    { id:"021", title:"12 Acres in Msambweni", location:"Msambweni", area:"12 Acres", price:"12,000,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"A stunning 12-acre seafront parcel in Msambweni with sweeping Indian Ocean views. Perfect for a large resort, eco-lodge, or private estate.", features:["12 Acres","Ocean Views","Special Deal","Resort Potential","Title Deed"], imageFolder:"021", imageCount:17, whatsappMsg:"Hello, I would like to learn more about 12 Acres Msambweni", status:"Active", featured:"yes" },
+    { id:"022", title:"12 Acres in Msambweni (Urgent)", location:"Msambweni", area:"12 Acres", price:"8,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"12 acres of prime Msambweni land at an urgent sale price. A fantastic opportunity for a developer or investor.", features:["12 Acres","Coastal","Urgent Sale","Title Deed"], imageFolder:"022", imageCount:14, whatsappMsg:"Hello, I would like to learn more about 12 Acres Msambweni Urgent", status:"Active", featured:"no" },
+    { id:"024", title:"2 Acres in Ukunda", location:"Ukunda", area:"2 Acres", price:"13,000,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"A well-positioned 2-acre plot in Ukunda town area, one of the Kenyan South Coast's fastest-growing commercial hubs. Excellent for commercial or mixed-use development.", features:["2 Acres","Ukunda Town","Commercial Potential","Road Frontage","Title Deed"], imageFolder:"024", imageCount:13, whatsappMsg:"Hello, I would like to learn more about 2 Acres Ukunda", status:"Active", featured:"no" },
+    { id:"025", title:"1 Acre in Kidomaya Kwale", location:"Kwale", area:"1 Acre", price:"600,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"An affordable 1-acre plot in Kidomaya, Kwale County. Great for long-term land banking or agricultural use. Urgent sale by motivated owner.", features:["Title Deed","Affordable","Agricultural","Urgent Sale"], imageFolder:"025", imageCount:13, whatsappMsg:"Hello, I would like to learn more about 1 Acre Kidomaya Kwale", status:"Active", featured:"no" },
+    { id:"026", title:"2 Acres in Ramisi Kwale", location:"Ramisi Kwale", area:"2 Acres", price:"700,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"Two acres in Ramisi at a special deal price per acre. Suitable for farming, eco-tourism, or land banking in this rapidly developing Kwale corridor.", features:["2 Acres","Special Deal","Ramisi","Road Access","Title Deed"], imageFolder:"026", imageCount:7, whatsappMsg:"Hello, I would like to learn more about 2 Acres Ramisi Kwale", status:"Active", featured:"no" },
+    { id:"028", title:"18 Acres in Kidomaya", location:"Kidomaya Kwale", area:"18 Acres", price:"550,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"A large 18-acre parcel in Kidomaya available at an urgently reduced per-acre price. Ideal for large-scale agricultural or commercial development.", features:["18 Acres","Urgent Sale","Agricultural","Title Deed","Large Parcel"], imageFolder:"028", imageCount:6, whatsappMsg:"Hello, I would like to learn more about 18 Acres Kidomaya", status:"Active", featured:"no" },
+    { id:"029", title:"19 Acres in Kidomaya", location:"Kidomaya Kwale", area:"19 Acres", price:"550,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"19 acres of productive land in Kidomaya, Kwale. Well-suited for agricultural use or subdivision. Good access road and clear title.", features:["19 Acres","Good Access","Title Deed","Agricultural"], imageFolder:"029", imageCount:16, whatsappMsg:"Hello, I would like to learn more about 19 Acres Kidomaya", status:"Active", featured:"no" },
+    { id:"030", title:"2 Acres in Galu Kinondo", location:"Galu Kinondo", area:"2 Acres", price:"9,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"Two premium acres in the exclusive Galu Kinondo belt. Within walking distance of Galu Beach. Perfect for a luxury villa or boutique hotel development.", features:["Galu Kinondo","Near Beach","2 Acres","Luxury Zone","Urgent Sale"], imageFolder:"030", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 2 Acres Galu Kinondo", status:"Active", featured:"yes" },
+    { id:"031", title:"2 Acres Coastal Land in Msambweni", location:"Msambweni", area:"2 Acres", price:"4,000,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"Two acres of beautiful coastal land in Msambweni with easy beach access and stunning views. A special deal for investors or home builders.", features:["Coastal Land","2 Acres","Beach Access","Special Deal","Title Deed"], imageFolder:"031", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 2 Acres Coastal Msambweni", status:"Active", featured:"yes" },
+    { id:"032", title:"4 Acre Beachfront in Shimoni", location:"Shimoni", area:"4 Acres", price:"13,000,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"An extraordinary beachfront opportunity in Shimoni — one of Kenya's most pristine coastal villages. This 4-acre parcel sits directly on the ocean with stunning views of Wasini Island. Perfect for a boutique eco-lodge, resort development, or exclusive private estate.", features:["Direct Beach Access","Ocean Views","Wasini Island Views","Resort Potential","Rare Beachfront"], imageFolder:"032", imageCount:16, whatsappMsg:"Hello, I would like to learn more about 4 Acre Beachfront Shimoni", status:"Active", featured:"yes" },
+    { id:"038", title:"20 Acres in Kidimu Kwale", location:"Kidimu Kwale", area:"20 Acres", price:"600,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"20 acres in Kidimu, Kwale County. Ideal for large-scale farming, eco-tourism, or land banking. Good access road and clean title deed.", features:["20 Acres","Agricultural","Road Access","Title Deed","Affordable"], imageFolder:"038", imageCount:18, whatsappMsg:"Hello, I would like to learn more about 20 Acres Kidimu Kwale", status:"Active", featured:"no" },
+    { id:"039", title:"20 Acres in Shimba Hills Roadside", location:"Shimba Hills", area:"20 Acres", price:"1,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"20 acres of prime roadside land bordering the Shimba Hills corridor. Excellent for agro-tourism, eco-lodges, or farming. Urgent sale.", features:["20 Acres","Roadside","Eco-Tourism Potential","Urgent Sale","Title Deed"], imageFolder:"039", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 20 Acres Shimba Hills", status:"Active", featured:"no" },
+    { id:"040", title:"3 Acres in Diani Roadside", location:"Diani", area:"3 Acres", price:"45,000,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"Three prime acres along the Diani Beach Road, the most commercially active stretch of the South Coast. Ideal for a shopping complex, hotel, or commercial development.", features:["Diani Beach Road","Commercial Zone","3 Acres","High Visibility","Title Deed"], imageFolder:"040", imageCount:4, whatsappMsg:"Hello, I would like to learn more about 3 Acres Diani Roadside", status:"Active", featured:"yes" },
+    { id:"042", title:"4 Acres in Msambweni", location:"Msambweni", area:"4 Acres", price:"8,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"Four acres of prime Msambweni land at an urgent sale price. Development-ready with good road access and a clean title deed.", features:["4 Acres","Urgent Sale","Road Access","Msambweni","Title Deed"], imageFolder:"042", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 4 Acres Msambweni", status:"Active", featured:"no" },
+    { id:"043", title:"3 Bedroom Villa for Sale", location:"Diani", area:"Villa", price:"40,000,000", currency:"KES", priceUnit:"", tag:"", tagColor:"", description:"A stunning fully-furnished 3-bedroom villa in the heart of Diani. Features a private pool, tropical garden, and modern finishes throughout. Currently operating as a successful holiday rental with strong occupancy rates.", features:["Private Pool","Furnished","3 Bedrooms","Holiday Rental Income","Tropical Garden"], imageFolder:"043", imageCount:69, whatsappMsg:"Hello, I would like to learn more about the 3 Bedroom Villa in Diani", status:"Active", featured:"yes" },
+    { id:"049", title:"3.5 Acres in Msambweni", location:"Msambweni", area:"3.5 Acres", price:"3,500,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"Three and a half acres of coastal land in Msambweni. Urgently listed by the owner. Development-ready with good access road.", features:["3.5 Acres","Coastal","Urgent Sale","Road Access","Title Deed"], imageFolder:"049", imageCount:12, whatsappMsg:"Hello, I would like to learn more about 3.5 Acres Msambweni", status:"Active", featured:"no" },
+    { id:"050", title:"4 Acre Beach Plot in Shimoni", location:"Shimoni", area:"4 Acres", price:"13,000,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"A spectacular 4-acre beachfront plot in Shimoni offering direct ocean access, incredible views, and resort development potential.", features:["Beach Plot","4 Acres","Direct Ocean Access","Resort Potential","Special Deal"], imageFolder:"050", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 4 Acre Beach Plot Shimoni", status:"Active", featured:"yes" },
+    { id:"052", title:"4.5 Acres in Matuga", location:"Matuga", area:"4.5 Acres", price:"1,300,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"4.5 acres of fertile land in Matuga at a very competitive urgent sale price. Ideal for farming, poultry, or land banking.", features:["4.5 Acres","Matuga","Urgent Sale","Agricultural","Title Deed"], imageFolder:"052", imageCount:10, whatsappMsg:"Hello, I would like to learn more about 4.5 Acres Matuga", status:"Active", featured:"no" },
+    { id:"054", title:"5 Acre Prime Plot in Diani", location:"Diani", area:"5 Acres", price:"10,000,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"Five acres of prime Diani land with excellent road frontage along the main Diani Beach Road. This large parcel is perfectly suited for commercial development, a hotel, or subdivision into smaller residential plots.", features:["Road Frontage","Commercial Potential","Hotel Site","Prime Diani Location","Subdivisible"], imageFolder:"054", imageCount:13, whatsappMsg:"Hello, I would like to learn more about 5 Acre Prime Plot Diani", status:"Active", featured:"yes" },
+    { id:"055", title:"5 Acre Coral Beach in Msambweni", location:"Msambweni", area:"5 Acres", price:"10,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"Five acres of stunning coral beach land in Msambweni. A rare and breathtaking coastal parcel with direct beach access and incredible sunset views.", features:["Coral Beach","5 Acres","Direct Access","Sunset Views","Urgent Sale"], imageFolder:"055", imageCount:22, whatsappMsg:"Hello, I would like to learn more about 5 Acre Coral Beach Msambweni", status:"Active", featured:"yes" },
+    { id:"057", title:"1 Acre in Kwale Kiscol", location:"Kwale", area:"1 Acre", price:"700,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A well-priced 1-acre plot near the Kiscol sugar zone in Kwale County. Ideal for residential or agricultural use with a clear title deed.", features:["1 Acre","Kwale","Near Kiscol","Title Deed","Special Price"], imageFolder:"057", imageCount:14, whatsappMsg:"Hello, I would like to learn more about 1 Acre Kwale Kiscol", status:"Active", featured:"no" },
+    { id:"060", title:"0.25 Acre in Galu Diani", location:"Diani", area:"0.25 Acre", price:"5,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"A quarter-acre plot in the premium Galu area of Diani. Ideal for a boutique villa or holiday home. Urgently listed at below-market price.", features:["0.25 Acre","Galu Diani","Urgent Sale","Premium Zone","Title Deed"], imageFolder:"060", imageCount:7, whatsappMsg:"Hello, I would like to learn more about 0.25 Acre Galu Diani", status:"Active", featured:"yes" },
+    { id:"061", title:"7 Acres in Msambweni", location:"Msambweni", area:"7 Acres", price:"10,000,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"Seven acres of scenic coastal land in Msambweni with excellent development potential. Suitable for resort, residential estate, or subdivision.", features:["7 Acres","Coastal","Development Potential","Title Deed","Msambweni"], imageFolder:"061", imageCount:20, whatsappMsg:"Hello, I would like to learn more about 7 Acres Msambweni", status:"Active", featured:"no" },
+    { id:"062", title:"7 Acre Ocean View in Funzi Msambweni", location:"Funzi Msambweni", area:"7 Acres", price:"12,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"A breathtaking 7-acre ocean-view parcel on Funzi Island in Msambweni. One of the most exclusive and unspoiled locations on Kenya's South Coast.", features:["7 Acres","Ocean Views","Funzi Island","Exclusive Location","Urgent Sale"], imageFolder:"062", imageCount:18, whatsappMsg:"Hello, I would like to learn more about 7 Acres Funzi Msambweni", status:"Active", featured:"yes" },
+    { id:"063", title:"1 Acre Beach Plot in Funzi", location:"Funzi", area:"1 Acre", price:"10,000,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A stunning 1-acre beach plot on the shores of Funzi Island. Direct ocean access, pristine water, and complete tranquillity make this one of the most sought-after plots on the South Coast.", features:["Direct Beach Access","Funzi Island","1 Acre","Pristine Waters","Special Deal"], imageFolder:"063", imageCount:22, whatsappMsg:"Hello, I would like to learn more about 1 Acre Beach Plot Funzi", status:"Active", featured:"yes" },
+    { id:"066", title:"0.25 Acre in Mvindeni Diani", location:"Diani", area:"0.25 Acre", price:"1,500,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"An affordable quarter-acre plot in Mvindeni, Diani. Perfect for a starter home or investment. Urgent sale by motivated owner with clear title deed.", features:["0.25 Acre","Mvindeni Diani","Affordable","Urgent Sale","Title Deed"], imageFolder:"066", imageCount:9, whatsappMsg:"Hello, I would like to learn more about 0.25 Acre Mvindeni Diani", status:"Active", featured:"no" },
+    { id:"070", title:"3 Acre Coral Beach in Shimoni", location:"Shimoni", area:"3 Acres", price:"13,000,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"Three acres of rare coral beach land in Shimoni with direct ocean frontage. Ideal for an eco-resort or high-end beach retreat.", features:["Coral Beach","3 Acres","Shimoni","Ocean Frontage","Resort Potential"], imageFolder:"070", imageCount:18, whatsappMsg:"Hello, I would like to learn more about 3 Acres Coral Beach Shimoni", status:"Active", featured:"yes" },
+    { id:"071", title:"3.5 Acre in Galu Kinondo", location:"Galu Kinondo", area:"3.5 Acres", price:"2,000,000", currency:"KES", priceUnit:"/ac", tag:"Urgent Sale", tagColor:"red", description:"3.5 acres in the exclusive Galu Kinondo area at an urgent sale price. A rare opportunity to acquire a large parcel in one of Diani's most prestigious locations.", features:["3.5 Acres","Galu Kinondo","Urgent Sale","Prestigious Area","Title Deed"], imageFolder:"071", imageCount:9, whatsappMsg:"Hello, I would like to learn more about 3.5 Acres Galu Kinondo", status:"Active", featured:"yes" },
+    { id:"072", title:"0.25 Acre Galu Kinondo", location:"Galu Kinondo", area:"0.25 Acre", price:"6,500,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A premium quarter-acre plot in the heart of Galu Kinondo, Diani's most exclusive residential area. Perfect for a luxury villa or holiday home.", features:["0.25 Acre","Galu Kinondo","Luxury Zone","Special Deal","Title Deed"], imageFolder:"072", imageCount:10, whatsappMsg:"Hello, I would like to learn more about 0.25 Acre Galu Kinondo", status:"Active", featured:"yes" },
+    { id:"075", title:"0.5 Acre in Diani", location:"Diani", area:"0.5 Acre", price:"20,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"A premium half-acre plot in a prime Diani location. Urgently listed by the seller. Ideal for a luxury villa or commercial development. Clean title deed.", features:["0.5 Acre","Prime Diani","Urgent Sale","Luxury Zone","Title Deed"], imageFolder:"075", imageCount:11, whatsappMsg:"Hello, I would like to learn more about 0.5 Acre Diani", status:"Active", featured:"yes" },
+    { id:"080", title:"30 Acres in Majoreni Kwale", location:"Majoreni Kwale", area:"30 Acres", price:"550,000", currency:"KES", priceUnit:"/ac", tag:"", tagColor:"", description:"A vast 30-acre agricultural and investment parcel in Majoreni, Kwale County. This land bank offers exceptional value for money and long-term appreciation. Suitable for large-scale farming, eco-tourism development, or strategic land banking.", features:["30 Acres","Agricultural Use","Land Banking","Full Title Deed","Affordable per Acre"], imageFolder:"080", imageCount:10, whatsappMsg:"Hello, I would like to learn more about 30 Acres Majoreni Kwale", status:"Active", featured:"no" },
+    { id:"081", title:"2 Acres with Home in Kikambala", location:"Kikambala", area:"2 Acres", price:"550,000", currency:"USD", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"A rare opportunity to acquire a 2-acre property complete with a built home in Kikambala, North Coast. The property is fully walled with a borehole, staff quarters, and landscaped gardens. USD pricing reflects the international calibre of this property.", features:["Walled Compound","Borehole","Staff Quarters","Landscaped Gardens","North Coast"], imageFolder:"081", imageCount:32, whatsappMsg:"Hello, I would like to learn more about 2 Acres with Home Kikambala", status:"Active", featured:"yes" },
+    { id:"083", title:"2 Acres in Ukunda", location:"Ukunda", area:"2 Acres", price:"2,500,000", currency:"KES", priceUnit:"/ac", tag:"Special Deal", tagColor:"gold", description:"Two well-positioned acres in Ukunda at a special deal price per acre. Ukunda is a rapidly growing commercial and residential hub on the South Coast.", features:["2 Acres","Ukunda","Growing Area","Special Deal","Title Deed"], imageFolder:"083", imageCount:23, whatsappMsg:"Hello, I would like to learn more about 2 Acres Ukunda", status:"Active", featured:"no" },
+    { id:"085", title:"0.25 Acre in Galu Diani (2)", location:"Diani", area:"0.25 Acre", price:"5,500,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"Another premium quarter-acre in the Galu area of Diani. Urgently listed. Perfect for a boutique villa in one of the Coast's most desirable neighbourhoods.", features:["0.25 Acre","Galu Diani","Urgent Sale","Premium Location","Title Deed"], imageFolder:"085", imageCount:18, whatsappMsg:"Hello, I would like to learn more about 0.25 Acre Galu Diani", status:"Active", featured:"no" },
+    { id:"092", title:"1 Acre in Matuga (Premium)", location:"Matuga", area:"1 Acre", price:"15,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"A premium 1-acre plot in Matuga with infrastructure and development potential. Urgently listed at a compelling price.", features:["1 Acre","Matuga","Infrastructure","Urgent Sale","Title Deed"], imageFolder:"092", imageCount:14, whatsappMsg:"Hello, I would like to learn more about 1 Acre Matuga Premium", status:"Active", featured:"no" },
+    { id:"093", title:"1 Acre in Matuga (Special)", location:"Matuga", area:"1 Acre", price:"16,000,000", currency:"KES", priceUnit:"", tag:"Special Deal", tagColor:"gold", description:"A premium 1-acre plot in Matuga offered at a special deal. Excellent road access and ready for immediate development.", features:["1 Acre","Matuga","Road Access","Special Deal","Title Deed"], imageFolder:"093", imageCount:10, whatsappMsg:"Hello, I would like to learn more about 1 Acre Matuga Special", status:"Active", featured:"no" },
+    { id:"094", title:"1 Acre in Diani", location:"Diani", area:"1 Acre", price:"15,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"A prime 1-acre plot in Diani, urgently listed. Excellent location within the main Diani corridor with clear title deed and good road access.", features:["1 Acre","Diani","Urgent Sale","Prime Location","Title Deed"], imageFolder:"094", imageCount:13, whatsappMsg:"Hello, I would like to learn more about 1 Acre Diani", status:"Active", featured:"yes" },
+    { id:"095", title:"0.5 Acre in Ramisi", location:"Ramisi", area:"0.5 Acre", price:"650,000", currency:"KES", priceUnit:"", tag:"", tagColor:"", description:"An affordable half-acre plot in Ramisi, Kwale County. Suitable for a rural home, small farm, or investment. Clean title deed.", features:["0.5 Acre","Ramisi","Affordable","Title Deed","Peaceful"], imageFolder:"095", imageCount:23, whatsappMsg:"Hello, I would like to learn more about 0.5 Acre Ramisi", status:"Active", featured:"no" },
+    { id:"096", title:"0.5 Acre in Mvindeni", location:"Mvindeni", area:"0.5 Acre", price:"6,000,000", currency:"KES", priceUnit:"", tag:"Urgent Sale", tagColor:"red", description:"Half an acre in the sought-after Mvindeni area, close to Diani Beach road. Urgently listed by a motivated seller. Clean title deed.", features:["0.5 Acre","Mvindeni","Near Diani","Urgent Sale","Title Deed"], imageFolder:"096", imageCount:8, whatsappMsg:"Hello, I would like to learn more about 0.5 Acre Mvindeni", status:"Active", featured:"no" },
+    { id:"097", title:"1 Acre 2nd Row Plot in Tiwi", location:"Tiwi", area:"1 Acre", price:"15,000,000", currency:"KES", priceUnit:"", tag:"", tagColor:"", description:"A superb 1-acre plot in Tiwi's sought-after second row — just a short walk to the beach. This elevated plot offers partial ocean views and a refreshing sea breeze. Tiwi Beach is one of the most pristine and uncrowded stretches of Kenya's South Coast.", features:["2nd Row from Beach","Partial Ocean Views","Sea Breeze","Elevated Plot","Clean Title"], imageFolder:"097", imageCount:11, whatsappMsg:"Hello, I would like to learn more about the 1 Acre 2nd Row Plot in Tiwi", status:"Active", featured:"yes" },
+    { id:"098", title:"Luxury 3 Floor Home in Tiwi", location:"Tiwi", area:"Home", price:"60,000,000", currency:"KES", priceUnit:"", tag:"Great Discount!", tagColor:"red", description:"A magnificent three-storey luxury home perched in Tiwi with breathtaking panoramic ocean views. Features 5 bedrooms, 4 bathrooms, a rooftop terrace, infinity-edge pool, and exquisite Swahili-inspired architectural details.", features:["5 Bedrooms","4 Bathrooms","Infinity Pool","Ocean Views","Rooftop Terrace","Swahili Architecture"], imageFolder:"098", imageCount:39, whatsappMsg:"Hello, I would like to learn more about the Luxury 3 Floor Home in Tiwi", status:"Active", featured:"yes" }
+];
+
+let allProperties = [];
+
+// ── IMAGE PATH — works on localhost, GitHub Pages, and custom domains ────
+// imageFolder / folderId is just the 3-digit numeric ID, e.g. "001"
+// The IMG_BASE prefix is detected once from the current page URL.
+const IMG_BASE = window.location.pathname.toLowerCase().includes('/pages/') ? '../' : '';
+
+function buildImageSrc(folderId, id, index) {
+    const paddedId  = String(folderId || id).padStart(3, "0");
+    const paddedIdx = String(index).padStart(2, "0");
+    return `${IMG_BASE}../Images/Catalog/${paddedId}/${paddedId}-${paddedIdx}.webp`;
+}
+
+function discoverImages(folderId, id, knownCount) {
+    return new Promise(resolve => {
+        const found = [];
+        const hint  = Math.max(1, parseInt(knownCount) || 1);
+        const MAX   = Math.max(hint + 2, 70);
+        let   index = 1;
+
+        function probe() {
+            if (index > MAX) { resolve(found); return; }
+            const src = buildImageSrc(folderId, id, index);
+            const img = new Image();
+            img.onload  = () => { found.push(src); index++; probe(); };
+            img.onerror = () => {
+                // Keep trying up to knownCount in case of sparse numbering
+                if (found.length < hint && index < hint) { index++; probe(); }
+                else { resolve(found); }
+            };
+            img.src = src;
+        }
+        probe();
+    });
+}
+// ─────────────────────────────────────────────────────────────────────────
+
+async function loadProperty() {
+    const params = new URLSearchParams(window.location.search);
+    const propId = params.get("id");
+
+    if (!propId) {
+        showError();
+        return;
+    }
+
+    try {
+        let data;
+        if (SHEET_API_URL && SHEET_API_URL !== "https://script.google.com/macros/s/AKfycbwQezH9tBAPMJ69G9S3NEiaDUBQl2mdFO9SEtunB9xaUZIM3I9LgkppzJMkTL1Nzbt9/exec") {
+            const res = await fetch(`${SHEET_API_URL}?id=${propId}`);
+            data = await res.json();
+            allProperties = data.properties || [];
+        } else {
+            // Demo mode
+            allProperties = DEMO_PROPERTIES;
+        }
+
+        const property = allProperties.find(p => String(p.id) === String(propId))
+                      || (DEMO_PROPERTIES.find(p => String(p.id) === String(propId)));
+
+        if (!property) { showError(); return; }
+
+        renderProperty(property);
+        renderRelated(property);
+
+        document.getElementById("loading-state").classList.add("hidden");
+        document.getElementById("property-content").classList.remove("hidden");
+
+    } catch (err) {
+        console.error(err);
+        // Try demo fallback
+        const property = DEMO_PROPERTIES.find(p => String(p.id) === String(propId));
+        if (property) {
+            allProperties = DEMO_PROPERTIES;
+            renderProperty(property);
+            renderRelated(property);
+            document.getElementById("loading-state").classList.add("hidden");
+            document.getElementById("property-content").classList.remove("hidden");
+        } else {
+            showError();
+        }
+    }
+}
+
+function renderProperty(p) {
+    document.title = `${p.title} | Silicon Properties Kenya`;
+    document.getElementById("breadcrumb-title").textContent = p.title;
+    document.getElementById("property-title").textContent = p.title;
+    document.getElementById("property-location").textContent = p.location;
+    document.getElementById("property-area").textContent = p.area;
+
+    // Price
+    const priceStr = typeof p.price === "number" ? p.price.toLocaleString() : p.price;
+    document.getElementById("property-price").textContent =
+        `${p.currency || "KES"} ${priceStr}${p.priceUnit || ""}`;
+
+    document.getElementById("property-description").textContent = p.description;
+
+    // Tag
+    if (p.tag) {
+        const tagEl = document.getElementById("property-tag");
+        tagEl.textContent = p.tag;
+        tagEl.className = `absolute top-4 left-4 px-4 py-2 text-xs font-bold uppercase tracking-widest z-10 tag-${p.tagColor || "blue"}`;
+        tagEl.classList.remove("hidden");
+    }
+
+    // ── GALLERY ──────────────────────────────────────────────
+    const mainImg  = document.getElementById("main-image");
+    const thumbRow = document.getElementById("thumbnail-row");
+    const counter  = document.getElementById("image-counter");
+
+    thumbRow.innerHTML = "";
+    if (counter) counter.classList.add("hidden");
+    mainImg.src = "https://placehold.co/800x600/093193/ffffff?text=Loading...";
+
+    discoverImages(p.imageFolder, p.id, p.imageCount).then(images => {
+        if (images.length === 0) {
+            mainImg.src = "https://placehold.co/800x600/093193/ffffff?text=Image+Coming+Soon";
+            return;
+        }
+
+        mainImg.src = images[0];
+        mainImg.onerror = () => {
+            mainImg.src = "https://placehold.co/800x600/093193/ffffff?text=Image+Coming+Soon";
+        };
+
+        let activeIndex = 0;
+
+        if (images.length > 1 && counter) {
+            counter.textContent = `1 / ${images.length}`;
+            counter.classList.remove("hidden");
+        }
+
+        function setActive(idx) {
+            activeIndex = idx;
+            mainImg.src = images[idx];
+            if (images.length > 1 && counter) counter.textContent = `${idx + 1} / ${images.length}`;
+            document.querySelectorAll(".gallery-thumb").forEach((t, i) => {
+                t.classList.toggle("active", i === idx);
+            });
+            const thumbEls = thumbRow.querySelectorAll(".gallery-thumb");
+            if (thumbEls[idx]) thumbEls[idx].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+
+        images.forEach((src, i) => {
+            const thumb = document.createElement("img");
+            thumb.src   = src;
+            thumb.alt   = `Photo ${i + 1}`;
+            thumb.className = `gallery-thumb w-24 h-20 object-cover flex-shrink-0 ${i === 0 ? "active" : ""}`;
+            thumb.onerror = () => { thumb.style.display = "none"; };
+            thumb.addEventListener("click", () => setActive(i));
+            thumbRow.appendChild(thumb);
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "ArrowRight" && activeIndex < images.length - 1) setActive(activeIndex + 1);
+            if (e.key === "ArrowLeft"  && activeIndex > 0)                 setActive(activeIndex - 1);
+        });
+    });
+    // ─────────────────────────────────────────────────────────
+
+    // Features
+    const featuresList = document.getElementById("features-list");
+    featuresList.innerHTML = "";
+    const features = Array.isArray(p.features) ? p.features
+        : (p.features ? p.features.split("|").map(f => f.trim()) : []);
+    features.forEach(f => {
+        if (!f) return;
+        const li = document.createElement("li");
+        li.className = "flex items-center gap-2 text-sm text-slate-700";
+        li.innerHTML = `<span class="w-2 h-2 bg-brandGold rounded-full flex-shrink-0"></span>${f}`;
+        featuresList.appendChild(li);
+    });
+
+    // WhatsApp
+    const waBtn = document.getElementById("whatsapp-btn");
+    const msg = encodeURIComponent(p.whatsappMsg || `Hello, I would like to learn more about ${p.title}`);
+    waBtn.href = `https://wa.me/254725931017?text=${msg}`;
+}
+
+function renderRelated(current) {
+    const grid = document.getElementById("related-grid");
+    grid.innerHTML = "";
+    const related = allProperties
+        .filter(p => String(p.id) !== String(current.id) && p.status !== "Inactive")
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+
+    if (related.length === 0) {
+        // Use demo data
+        DEMO_PROPERTIES.filter(p => String(p.id) !== String(current.id)).slice(0, 3).forEach(addRelatedCard);
+    } else {
+        related.forEach(addRelatedCard);
+    }
+
+    function addRelatedCard(p) {
+        const priceStr = typeof p.price === "number" ? p.price.toLocaleString() : p.price;
+        const imgSrc = buildImageSrc(p.imageFolder, p.id, 1);
+        const card = document.createElement("div");
+        card.className = "bg-white border border-slate-100 shadow-md group";
+        card.innerHTML = `
+            <div class="aspect-[4/3] overflow-hidden relative">
+                <img src="${imgSrc}" alt="${p.title}"
+                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                     onerror="this.src='https://placehold.co/400x300/093193/ffffff?text=Property'">
+                ${p.tag ? `<div class="absolute top-3 left-3 px-3 py-1 text-xs font-bold uppercase tracking-widest tag-${p.tagColor || "blue"}">${p.tag}</div>` : ""}
+            </div>
+            <div class="p-6">
+                <h3 class="font-serif text-xl mb-2 text-brandBlue">${p.title}</h3>
+                <p class="text-brandGold font-bold mb-4">${p.currency || "KES"} ${priceStr}${p.priceUnit || ""}</p>
+                <a href="properties.html?id=${p.id}"
+                   class="block text-center border-2 border-brandBlue text-brandBlue py-2 font-bold uppercase text-xs tracking-widest hover:bg-brandBlue hover:text-white transition">
+                    View Property
+                </a>
+            </div>
+        `;
+        grid.appendChild(card);
+    }
+}
+
+function showError() {
+    document.getElementById("loading-state").classList.add("hidden");
+    document.getElementById("error-state").classList.remove("hidden");
+}
+
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+    loadProperty();
+    if (typeof lucide !== "undefined") lucide.createIcons();
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuBtn && mobileMenu) menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+});
+</script>
+</body>
+</html>

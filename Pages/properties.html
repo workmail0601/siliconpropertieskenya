@@ -48,6 +48,24 @@
         #thumbnail-row::-webkit-scrollbar-thumb { background: #efb027; border-radius: 2px; }
         #thumbnail-row { scrollbar-width: thin; scrollbar-color: #efb027 #f1f5f9; }
     </style>
+    <meta property="og:url" content="https://www.siliconpropertieske.com/pages/properties.html">
+    <link rel="canonical" id="canonical-link" href="https://www.siliconpropertieske.com/pages/properties.html">
+    <script>
+      (function() {
+        try {
+          var p = new URLSearchParams(window.location.search);
+          var id = p.get("id");
+          var base = "https://www.siliconpropertieske.com/pages/properties.html";
+          var href = id ? (base + "?id=" + encodeURIComponent(id)) : base;
+          var link = document.getElementById("canonical-link");
+          if (link) link.setAttribute("href", href);
+          var og = document.querySelector('meta[property="og:url"]');
+          if (og) og.setAttribute("content", href);
+          // Strip trailing slash duplicates by setting history state
+        } catch(e){}
+      })();
+    </script>
+    <meta name="robots" content="index, follow">
 </head>
 <body class="bg-white text-slate-900 font-sans">
 

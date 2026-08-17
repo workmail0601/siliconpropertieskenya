@@ -108,73 +108,15 @@
 <section class="pb-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 space-y-4">
 
-        <div class="border-b border-slate-200 blog-item">
-            <button onclick="toggleBlog(this)" class="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all">
-                <div class="flex flex-col items-start text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">February 2026 • Investment</span>
-                    <h3 class="font-serif text-2xl md:text-4xl text-brandBlue group-hover:text-brandGold transition-colors">Why Diani Beach remains Kenya's top investment hub</h3>
-                </div>
-                <span class="mt-4 md:mt-0 text-3xl font-light text-brandBlue transform transition-transform duration-300 icon">+</span>
-            </button>
-            
-            <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out content">
-                <div class="grid md:grid-cols-2 gap-12 pb-12 items-center">
-                    <div class="aspect-video overflow-hidden shadow-xl">
-                        <img src="../Images/Web/6.webp" class="w-full h-full object-cover" alt="Blog Image">
-                    </div>
-                    <div class="text-slate-600 leading-relaxed space-y-4">
-                        <p class="font-bold text-brandBlue">The tourism sector is rebounding faster than ever, and land value in Msambweni and Diani is reflecting this surge.</p>
-                        <p>With the expansion of the Diani airport and improved road networks connecting the coast to the Lunga Lunga border, accessibility has reached an all-time high. For investors, this means higher capital appreciation and rental yields for holiday homes.</p>
-                        <p>Whether you are looking for a retirement home or a commercial plot, the window for sub-10 million KES beach-access plots is narrowing quickly.</p>
-                    </div>
-                </div>
-            </div>
+        <div id="blog-loading" class="py-16 text-center text-slate-400 text-sm uppercase tracking-widest">
+            Loading articles…
         </div>
 
-        <div class="border-b border-slate-200 blog-item">
-            <button onclick="toggleBlog(this)" class="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all">
-                <div class="flex flex-col items-start text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">January 2026 • Legal</span>
-                    <h3 class="font-serif text-2xl md:text-4xl text-brandBlue group-hover:text-brandGold transition-colors">Navigating Land Titles at the Kenyan Coast</h3>
-                </div>
-                <span class="mt-4 md:mt-0 text-3xl font-light text-brandBlue transform transition-transform duration-300 icon">+</span>
-            </button>
-            
-            <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out content">
-                <div class="grid md:grid-cols-2 gap-12 pb-12 items-center">
-                    <div class="aspect-video overflow-hidden shadow-xl">
-                        <img src="../Images/Web/2.webp" class="w-full h-full object-cover" alt="Blog Image">
-                    </div>
-                    <div class="text-slate-600 leading-relaxed space-y-4">
-                        <p class="font-bold text-brandBlue">Understanding the difference between Freehold and Leasehold is vital for any property buyer in Kenya.</p>
-                        <p>Most agricultural land in Kwale County is held under Freehold titles, while beach-front properties and commercial zones often fall under 99-year Leaseholds. At Silicon Properties, we ensure every title deed is verified through the lands registry before any commitment is made.</p>
-                        <p>Our legal team assists in the search process, ensuring your investment is secure from day one.</p>
-                    </div>
-                </div>
-            </div>
+        <div id="blog-empty" class="hidden py-16 text-center text-slate-400 text-sm uppercase tracking-widest">
+            No articles yet. Check back soon.
         </div>
 
-        <div class="border-b border-slate-200 blog-item">
-            <button onclick="toggleBlog(this)" class="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all">
-                <div class="flex flex-col items-start text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">December 2025 • Design</span>
-                    <h3 class="font-serif text-2xl md:text-4xl text-brandBlue group-hover:text-brandGold transition-colors">Sustainable Coastal Architecture: Building Cool</h3>
-                </div>
-                <span class="mt-4 md:mt-0 text-3xl font-light text-brandBlue transform transition-transform duration-300 icon">+</span>
-            </button>
-            
-            <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out content">
-                <div class="grid md:grid-cols-2 gap-12 pb-12 items-center">
-                    <div class="aspect-video overflow-hidden shadow-xl">
-                        <img src="../Images/Web/5.webp" class="w-full h-full object-cover" alt="Blog Image">
-                    </div>
-                    <div class="text-slate-600 leading-relaxed space-y-4">
-                        <p class="font-bold text-brandBlue">How to design homes that breathe in the tropical humidity without relying solely on Air Conditioning.</p>
-                        <p>Using high ceilings, makuti roofing, and local Galana stone flooring can reduce the internal temperature of a house by up to 5 degrees. We explore how modern Swahili-style architecture is evolving to include smart home features while maintaining its cultural soul.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="blog-list" class="space-y-4"></div>
 
     </div>
 </section>
@@ -258,8 +200,8 @@
                 © 2026 Silicon Properties Kenya. All rights reserved.
             </div>
             <div class="flex gap-8 text-[11px] uppercase tracking-[0.2em] text-white/40">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>
@@ -283,6 +225,87 @@
 </div>
 
 <div id="google_translate_element" class="hidden"></div>
+
+<script>
+// ============================================================
+// CONFIGURATION — same Apps Script Web App URL used by properties.html
+// (blogs are requested with ?type=blogs so the properties routes
+// on that same deployment are completely unaffected)
+// ============================================================
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwQezH9tBAPMJ69G9S3NEiaDUBQl2mdFO9SEtunB9xaUZIM3I9LgkppzJMkTL1Nzbt9/exec";
+
+// Fallback demo data — used if the sheet can't be reached
+const DEMO_BLOGS = [
+    { id:"001", date:"February 2026", category:"Investment", title:"Why Diani Beach remains Kenya's top investment hub", image:"Images/Web/6.webp", summary:"The tourism sector is rebounding faster than ever, and land value in Msambweni and Diani is reflecting this surge.", body:["With the expansion of the Diani airport and improved road networks connecting the coast to the Lunga Lunga border, accessibility has reached an all-time high. For investors, this means higher capital appreciation and rental yields for holiday homes.","Whether you are looking for a retirement home or a commercial plot, the window for sub-10 million KES beach-access plots is narrowing quickly."], status:"Active" },
+    { id:"002", date:"January 2026", category:"Legal", title:"Navigating Land Titles at the Kenyan Coast", image:"Images/Web/2.webp", summary:"Understanding the difference between Freehold and Leasehold is vital for any property buyer in Kenya.", body:["Most agricultural land in Kwale County is held under Freehold titles, while beach-front properties and commercial zones often fall under 99-year Leaseholds. At Silicon Properties, we ensure every title deed is verified through the lands registry before any commitment is made.","Our legal team assists in the search process, ensuring your investment is secure from day one."], status:"Active" },
+    { id:"003", date:"December 2025", category:"Design", title:"Sustainable Coastal Architecture: Building Cool", image:"Images/Web/5.webp", summary:"How to design homes that breathe in the tropical humidity without relying solely on Air Conditioning.", body:["Using high ceilings, makuti roofing, and local Galana stone flooring can reduce the internal temperature of a house by up to 5 degrees. We explore how modern Swahili-style architecture is evolving to include smart home features while maintaining its cultural soul."], status:"Active" }
+];
+
+// Works on localhost, GitHub Pages, and custom domains — same trick as properties.html
+const BLOG_IMG_BASE = window.location.pathname.toLowerCase().includes('/pages/') ? '../' : '';
+
+function renderBlogs(blogs) {
+    const list = document.getElementById('blog-list');
+    const loading = document.getElementById('blog-loading');
+    const empty = document.getElementById('blog-empty');
+    if (!list) return;
+
+    loading.classList.add('hidden');
+
+    if (!blogs || blogs.length === 0) {
+        empty.classList.remove('hidden');
+        return;
+    }
+    empty.classList.add('hidden');
+
+    list.innerHTML = blogs.map(post => {
+        const bodyParagraphs = Array.isArray(post.body) ? post.body : [post.body].filter(Boolean);
+        const bodyHtml = bodyParagraphs.map(p => `<p>${p}</p>`).join('');
+        const imgSrc = post.image ? `${BLOG_IMG_BASE}../${post.image}` : `${BLOG_IMG_BASE}../Images/Web/6.webp`;
+
+        return `
+        <div class="border-b border-slate-200 blog-item">
+            <button onclick="toggleBlog(this)" class="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all">
+                <div class="flex flex-col items-start text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">${post.date || ''}${post.date && post.category ? ' • ' : ''}${post.category || ''}</span>
+                    <h3 class="font-serif text-2xl md:text-4xl text-brandBlue group-hover:text-brandGold transition-colors">${post.title || ''}</h3>
+                </div>
+                <span class="mt-4 md:mt-0 text-3xl font-light text-brandBlue transform transition-transform duration-300 icon">+</span>
+            </button>
+
+            <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out content">
+                <div class="grid md:grid-cols-2 gap-12 pb-12 items-center">
+                    <div class="aspect-video overflow-hidden shadow-xl">
+                        <img src="${imgSrc}" class="w-full h-full object-cover" alt="${post.title || 'Blog Image'}">
+                    </div>
+                    <div class="text-slate-600 leading-relaxed space-y-4">
+                        <p class="font-bold text-brandBlue">${post.summary || ''}</p>
+                        ${bodyHtml}
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+async function loadBlogs() {
+    try {
+        if (typeof SHEET_API_URL !== "undefined" && SHEET_API_URL) {
+            const res = await fetch(`${SHEET_API_URL}?type=blogs`);
+            const data = await res.json();
+            const blogs = data.blogs || [];
+            renderBlogs(blogs.length ? blogs : DEMO_BLOGS);
+        } else {
+            renderBlogs(DEMO_BLOGS);
+        }
+    } catch (err) {
+        console.error(err);
+        renderBlogs(DEMO_BLOGS);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadBlogs);
+</script>
 
 <script>
     // 1. Initialize Icons

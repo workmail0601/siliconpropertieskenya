@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silicon Properties Kenya | Premium Real Estate</title>
-    
+
     <meta name="description" content="Find premium plots, holiday homes, and commercial real estate in Diani and the Kenyan coast with Silicon Properties.">
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Silicon Properties Kenya">
     <meta property="og:description" content="Invest in the Kenyan Coast's most exclusive properties.">
     <meta property="og:image" content="https://www.siliconpropertieske.com/Images/landing-page-background.jpg">
-    <meta property="og:url" content="https://www.siliconpropertieske.com/pages/blog.html">
-
+    <meta property="og:url" content="https://www.siliconpropertieske.com/pages/about.html">
+    
     <link rel="shortcut icon" href="../Images/Favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="../Images/Favicon/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../Images/Favicon/favicon-32.png">
@@ -21,11 +21,13 @@
     <link rel="apple-touch-icon" href="Images/Favicon/apple-touch-icon.png">
 
     <link rel="manifest" href="../Images/Favicon/site.webmanifest">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -42,9 +44,14 @@
             }
         }
     </script>
-     <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
     <style>
+        /* Hide the annoying Google Top Bar */
+    body { top: 0 !important; }
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    .goog-te-gadget { color: transparent !important; }
+    .goog-te-gadget img { display: none !important; }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -57,7 +64,7 @@
             transform: scale(1.05);
         }
     </style>
-    <link rel="canonical" href="https://www.siliconpropertieske.com/pages/blog.html">
+    <link rel="canonical" href="https://www.siliconpropertieske.com/pages/about.html">
 </head>
 <body class="bg-white text-slate-900 font-sans selection:bg-brandGold selection:text-white">
 
@@ -71,10 +78,10 @@
             
             <ul class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
                 <li><a href="../index.html" class="hover:text-brandGold transition-colors duration-300">Home</a></li>
-                <li><a href="about.html" class="hover:text-brandGold transition-colors duration-300">About Us</a></li>
+                <li><a href="#" class="hover:text-brandGold transition-colors duration-300">About Us</a></li>
                 <li><a href="catalog.html" class="hover:text-brandGold transition-colors duration-300">Properties</a></li>
                 <li><a href="contact.html" class="hover:text-brandGold transition-colors duration-300">Contact</a></li>
-                <li><a href="#" class="hover:text-brandGold transition-colors duration-300">Blog</a></li>
+                <li><a href="blog.html" class="hover:text-brandGold transition-colors duration-300">Blog</a></li>
             </ul>
 
             <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brandGold transition-colors">
@@ -87,47 +94,89 @@
         <div id="mobile-menu" class="hidden md:hidden bg-brandBlue border-t border-white/10 px-6 py-8">
             <ul class="flex flex-col gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
                 <li><a href="../index.html" class="block hover:text-brandGold transition">Home</a></li>
-                <li><a href="about.html" class="block hover:text-brandGold transition">About Us</a></li>
+                <li><a href="#" class="block hover:text-brandGold transition">About Us</a></li>
                 <li><a href="catalog.html" class="block hover:text-brandGold transition">Properties</a></li>
                 <li><a href="contact.html" class="block text-brandGold transition">Contact</a></li>
-                <li><a href="#" class="block text-brandGold transition">Blog</a></li>
+                <li><a href="blog.html" class="block text-brandGold transition">Blog</a></li>
             </ul>
         </div>
     </nav>
- 
     
-
-<section class="pt-32 pb-12 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <h4 class="text-brandGold uppercase tracking-[0.3em] text-sm font-bold mb-4">Insights & News</h4>
-        <h2 class="font-serif text-5xl md:text-7xl text-brandBlue mb-8">The Coastal <span class="italic text-brandGold">Journal</span></h2>
-        <div class="h-px w-full bg-slate-200"></div>
-    </div>
-</section>
-
-<section class="pb-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 space-y-4">
-
-        <div id="blog-loading" class="py-16 text-center text-slate-400 text-sm uppercase tracking-widest">
-            Loading articles…
+<section class="relative pt-44 pb-24 bg-brandBlue overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brandGold/5 skew-x-12 translate-x-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h4 class="text-brandGold uppercase tracking-[0.4em] text-sm font-bold mb-6">Our Story</h4>
+            <h1 class="font-serif text-5xl md:text-8xl text-white leading-tight mb-8">
+                Integrity in every <br> <span class="text-brandGold italic">Transaction.</span>
+            </h1>
+            <p class="text-white/70 text-xl max-w-2xl font-light leading-relaxed">
+                Since our inception, Silicon Properties has been dedicated to redefining the coastal real estate landscape through transparency and local expertise.
+            </p>
         </div>
+    </section>
 
-        <div id="blog-empty" class="hidden py-16 text-center text-slate-400 text-sm uppercase tracking-widest">
-            No articles yet. Check back soon.
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div class="relative order-2 md:order-1">
+                <div class="aspect-[4/5] overflow-hidden shadow-2xl relative z-10">
+                    <img src="../Images/Web/4.webp" alt="Coastal Property" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-brandGold/10 -z-0"></div>
+                <div class="absolute -bottom-6 -left-6 border-4 border-brandBlue w-32 h-32 hidden md:block"></div>
+            </div>
+
+            <div class="order-1 md:order-2">
+                <h2 class="font-serif text-4xl md:text-5xl text-brandBlue mb-8">Guided by local roots, driven by global standards.</h2>
+                <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                    <p>Based in Diani Beach, Silicon Properties specializes in premium beach plots, residential homes, and investment opportunities across the Kenyan Coast. We understand that buying property is more than a transaction; it's a milestone.</p>
+                    <p>Our philosophy is simple: **Client-first service.** We navigate the complexities of land titles and coastal regulations so you can focus on building your dream.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 mt-12 border-t border-slate-100 pt-12">
+                    <div>
+                        <span class="block font-serif text-4xl text-brandGold mb-2">10+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-brandBlue">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-4xl text-brandGold mb-2">500+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-brandBlue">Acres Sold</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div id="blog-list" class="space-y-4"></div>
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-serif text-4xl text-brandBlue mb-4">Our Core Values</h2>
+                <div class="h-1 w-20 bg-brandGold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandBlue group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Transparency</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">Clear communication and verified documentation are the pillars of every deal we close.</p>
+                </div>
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandGold group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Expertise</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">In-depth knowledge of the Kenyan coastal market ensures you get the best value for your investment.</p>
+                </div>
+                <div class="bg-white p-10 shadow-sm border-b-4 border-brandBlue group hover:bg-brandBlue transition-all duration-500">
+                    <h3 class="font-serif text-2xl mb-4 text-brandBlue group-hover:text-white">Commitment</h3>
+                    <p class="text-slate-500 group-hover:text-white/70">We stay with you long after the keys are handed over, offering support and property management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
-</section>
-
-
-
-
-
-
-
-
+    <section class="py-20 bg-brandBlue text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-serif text-4xl md:text-5xl mb-8">Ready to find your piece of paradise?</h2>
+            <a href="catalog.html" class="inline-block bg-brandGold text-brandBlue px-12 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                Browse Properties
+            </a>
+        </div>
+    </section>
 
 
 
@@ -226,150 +275,8 @@
 
 <div id="google_translate_element" class="hidden"></div>
 
-<script>
-// ============================================================
-// CONFIGURATION — same Apps Script Web App URL used by properties.html
-// (blogs are requested with ?type=blogs so the properties routes
-// on that same deployment are completely unaffected)
-// ============================================================
-const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwQezH9tBAPMJ69G9S3NEiaDUBQl2mdFO9SEtunB9xaUZIM3I9LgkppzJMkTL1Nzbt9/exec";
-
-// Fallback demo data — used if the sheet can't be reached
-const DEMO_BLOGS = [
-    { id:"001", date:"February 2026", category:"Investment", title:"Why Diani Beach remains Kenya's top investment hub", image:"Images/Web/6.webp", summary:"The tourism sector is rebounding faster than ever, and land value in Msambweni and Diani is reflecting this surge.", body:["With the expansion of the Diani airport and improved road networks connecting the coast to the Lunga Lunga border, accessibility has reached an all-time high. For investors, this means higher capital appreciation and rental yields for holiday homes.","Whether you are looking for a retirement home or a commercial plot, the window for sub-10 million KES beach-access plots is narrowing quickly."], status:"Active" },
-    { id:"002", date:"January 2026", category:"Legal", title:"Navigating Land Titles at the Kenyan Coast", image:"Images/Web/2.webp", summary:"Understanding the difference between Freehold and Leasehold is vital for any property buyer in Kenya.", body:["Most agricultural land in Kwale County is held under Freehold titles, while beach-front properties and commercial zones often fall under 99-year Leaseholds. At Silicon Properties, we ensure every title deed is verified through the lands registry before any commitment is made.","Our legal team assists in the search process, ensuring your investment is secure from day one."], status:"Active" },
-    { id:"003", date:"December 2025", category:"Design", title:"Sustainable Coastal Architecture: Building Cool", image:"Images/Web/5.webp", summary:"How to design homes that breathe in the tropical humidity without relying solely on Air Conditioning.", body:["Using high ceilings, makuti roofing, and local Galana stone flooring can reduce the internal temperature of a house by up to 5 degrees. We explore how modern Swahili-style architecture is evolving to include smart home features while maintaining its cultural soul."], status:"Active" }
-];
-
-// Works on localhost, GitHub Pages, and custom domains — same trick as properties.html
-const BLOG_IMG_BASE = window.location.pathname.toLowerCase().includes('/pages/') ? '../' : '';
-
-function renderBlogs(blogs) {
-    const list = document.getElementById('blog-list');
-    const loading = document.getElementById('blog-loading');
-    const empty = document.getElementById('blog-empty');
-    if (!list) return;
-
-    loading.classList.add('hidden');
-
-    if (!blogs || blogs.length === 0) {
-        empty.classList.remove('hidden');
-        return;
-    }
-    empty.classList.add('hidden');
-
-    list.innerHTML = blogs.map(post => {
-        const bodyParagraphs = Array.isArray(post.body) ? post.body : [post.body].filter(Boolean);
-        const bodyHtml = bodyParagraphs.map(p => `<p>${p}</p>`).join('');
-        const imgSrc = post.image ? `${BLOG_IMG_BASE}../${post.image}` : `${BLOG_IMG_BASE}../Images/Web/6.webp`;
-
-        return `
-        <div class="border-b border-slate-200 blog-item">
-            <button onclick="toggleBlog(this)" class="w-full py-8 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all">
-                <div class="flex flex-col items-start text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">${post.date || ''}${post.date && post.category ? ' • ' : ''}${post.category || ''}</span>
-                    <h3 class="font-serif text-2xl md:text-4xl text-brandBlue group-hover:text-brandGold transition-colors">${post.title || ''}</h3>
-                </div>
-                <span class="mt-4 md:mt-0 text-3xl font-light text-brandBlue transform transition-transform duration-300 icon">+</span>
-            </button>
-
-            <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out content">
-                <div class="grid md:grid-cols-2 gap-12 pb-12 items-center">
-                    <div class="aspect-video overflow-hidden shadow-xl">
-                        <img src="${imgSrc}" class="w-full h-full object-cover" alt="${post.title || 'Blog Image'}">
-                    </div>
-                    <div class="text-slate-600 leading-relaxed space-y-4">
-                        <p class="font-bold text-brandBlue">${post.summary || ''}</p>
-                        ${bodyHtml}
-                    </div>
-                </div>
-            </div>
-        </div>`;
-    }).join('');
-}
-
-async function loadBlogs() {
-    try {
-        if (typeof SHEET_API_URL !== "undefined" && SHEET_API_URL) {
-            const res = await fetch(`${SHEET_API_URL}?type=blogs`);
-            const data = await res.json();
-            const blogs = data.blogs || [];
-            renderBlogs(blogs.length ? blogs : DEMO_BLOGS);
-        } else {
-            renderBlogs(DEMO_BLOGS);
-        }
-    } catch (err) {
-        console.error(err);
-        renderBlogs(DEMO_BLOGS);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', loadBlogs);
-</script>
-
-<script>
-    // 1. Initialize Icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    // 2. Mobile Menu Toggle (Safe Check)
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-
-    // 3. Blog Accordion Logic (Safe Check)
-    function toggleBlog(button) {
-        const item = button.parentElement;
-        if (!item) return;
-
-        const content = item.querySelector('.content');
-        const icon = item.querySelector('.icon');
-        
-        if (!content || !icon) return;
-
-        // Close other open items
-        document.querySelectorAll('.content').forEach(c => {
-            if (c !== content) {
-                c.style.maxHeight = null;
-                const otherIcon = c.parentElement.querySelector('.icon');
-                if (otherIcon) {
-                    otherIcon.style.transform = 'rotate(0deg)';
-                    otherIcon.innerText = '+';
-                }
-            }
-        });
-
-        // Toggle current item
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            icon.style.transform = 'rotate(0deg)';
-            icon.innerText = '+';
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.style.transform = 'rotate(45deg)';
-            icon.innerText = '×';
-        }
-    }
-
-    // 4. Scroll to Top Logic (Safe Check)
-    const toTop = document.getElementById('toTop');
-    if (toTop) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                toTop.style.opacity = '1';
-                toTop.style.pointerEvents = 'auto';
-            } else {
-                toTop.style.opacity = '0';
-                toTop.style.pointerEvents = 'none';
-            }
-        });
-        toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-    }
-
-    // 5. Google Translate & Language Logic
+    <script>
+    // 1. POPULATE LANGUAGES FIRST (Ensures they load regardless of other errors)
     const languages = [
         { name: 'English', code: 'en' },
         { name: 'Arabic (العربية)', code: 'ar' },
@@ -387,15 +294,25 @@ document.addEventListener('DOMContentLoaded', loadBlogs);
         { name: 'Turkish (Türkçe)', code: 'tr' }
     ];
 
-    const langList = document.getElementById('language-list');
-    if (langList) {
+    const list = document.getElementById('language-list');
+    if (list) {
         languages.forEach(lang => {
             const btn = document.createElement('button');
             btn.className = "text-left px-3 py-2 text-sm text-slate-700 hover:bg-brandBlue hover:text-white rounded-lg transition-colors duration-200";
             btn.innerText = lang.name;
             btn.onclick = () => changeLanguage(lang.code);
-            langList.appendChild(btn);
+            list.appendChild(btn);
         });
+    }
+
+    // 2. GOOGLE TRANSLATE INIT
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,zh-CN,de,fr,it,es,ar,hi,ru,nl,pt,tr,ja,ko,pl', 
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
     }
 
     function changeLanguage(langCode) {
@@ -404,21 +321,50 @@ document.addEventListener('DOMContentLoaded', loadBlogs);
             googleSelect.value = langCode;
             googleSelect.dispatchEvent(new Event('change'));
             toggleTranslateMenu();
+        } else {
+            alert("Translate service is still loading. Please try again in a second.");
         }
     }
 
     function toggleTranslateMenu() {
         const panel = document.getElementById('language-panel');
-        if (panel) {
-            if (panel.classList.contains('hidden')) {
-                panel.classList.remove('hidden');
-                setTimeout(() => panel.classList.remove('translate-y-4', 'opacity-0'), 10);
-            } else {
-                panel.classList.add('translate-y-4', 'opacity-0');
-                setTimeout(() => panel.classList.add('hidden'), 300);
-            }
+        if (panel.classList.contains('hidden')) {
+            panel.classList.remove('hidden');
+            setTimeout(() => panel.classList.remove('translate-y-4', 'opacity-0'), 10);
+        } else {
+            panel.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => panel.classList.add('hidden'), 300);
         }
     }
-</script>
+
+    // 3. UI INITIALIZATION (With safety checks)
+    lucide.createIcons();
+
+    // Mobile Menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Carousel (Safe version)
+    const carousel = document.getElementById('carousel');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    if (carousel && next && prev) {
+        next.addEventListener('click', () => carousel.scrollBy({ left: 400, behavior: 'smooth' }));
+        prev.addEventListener('click', () => carousel.scrollBy({ left: -400, behavior: 'smooth' }));
+    }
+
+    // To Top
+    const toTop = document.getElementById('toTop');
+    if (toTop) {
+        window.onscroll = () => {
+            if (window.scrollY > 500) toTop.style.opacity = '1';
+            else toTop.style.opacity = '0';
+        };
+        toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    }
+    </script>
 </body>
 </html>
